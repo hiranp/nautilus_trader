@@ -18,19 +18,14 @@
 //! portfolios of automated trading strategies on historical data with an event-driven engine,
 //! and also deploy those same strategies live, with no code changes.
 //!
-//!
-//! The platform is modularly designed to work with *adapters*, enabling connectivity to trading venues
-//! and data providers by converting their raw APIs into a unified interface.
-//!
 //! # Feature flags
 //!
 //! This crate provides feature flags to control source code inclusion during compilation,
 //! depending on the intended use case, i.e. whether to provide Python bindings
 //! for the main `nautilus_trader` Python package, or as part of a Rust only build.
 //!
-//! - `databento`: Includes the Databento integration adapter
 //! - `ffi`: Enables the C foreign function interface (FFI) from `cbindgen`
 //! - `python`: Enables Python bindings from `pyo3`
 
-#[cfg(feature = "databento")]
-pub mod databento;
+pub mod client;
+pub mod engine;

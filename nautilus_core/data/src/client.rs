@@ -13,12 +13,20 @@
 //  limitations under the License.
 // -------------------------------------------------------------------------------------------------
 
-//! Volatility type indicators.
+//! Base data client functionality.
 
-pub mod atr;
-pub mod dc;
-pub mod fuzzy;
-pub mod kc;
-pub mod kp;
-pub mod rvi;
-pub mod vr;
+// Under development
+#![allow(dead_code)]
+#![allow(unused_variables)]
+
+use nautilus_common::cache::Cache;
+use nautilus_core::time::AtomicTime;
+use nautilus_model::identifiers::{ClientId, Venue};
+
+pub struct DataClient {
+    pub client_id: ClientId,
+    pub venue: Venue,
+    pub is_connected: bool,
+    clock: &'static AtomicTime,
+    cache: &'static Cache,
+}
